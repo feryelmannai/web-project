@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FeastFinders</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style></style>
+  </head>
+  <body>
+    <header>
+      <!-- Slideshow container avec nouvelles images -->
+      <div class="slideshow">
+        <div class="slide active"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+      </div>
+
+      <!-- Overlay plus léger -->
+      <div class="overlay"></div>
+
+      <nav>
+        <div class="nav-content">
+          <div class="logo-container">
+            <img
+              src="https://i.pinimg.com/736x/2f/3f/56/2f3f56f130ef85ae604e3d455b044888.jpg"
+              style="margin-left: 25px"
+              class="log-icone"
+              alt="Saucy Spoon Logo"
+            />
+            <div class="logo-text">
+              <span>Saucy</span>
+              <span>spoon</span>
+            </div>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/submit">Submit a Recipe</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+          <div
+            class="d-flex justify-content-center align-items-center"
+            style="margin-left: 35px"
+          >
+            <a
+              href="/login"
+              style="
+                margin-right: 40px;
+                color: white;
+                text-decoration: none;
+                font-size: 20px;
+              "
+              >Log in</a
+            >
+          </div>
+
+          <div class="icon-container">
+            <div class="saucy-search">
+              <button class="search-trigger" id="searchTrigger">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </button>
+              <div class="search-box" id="searchBox">
+                <input
+                  type="text"
+                  placeholder="Search for recipes..."
+                  class="search-field"
+                />
+                <button class="search-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <a href="/liked">
+              <img
+                class="header-icon"
+                src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+                alt="Favorites"
+              />
+            </a>
+            <a href="/profile">
+              <img
+                class="header-icon"
+                src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png"
+                alt="Profile"
+              />
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-content">
+        <h1 id="animated-title" style="margin-top: 100px">
+          Cook Like a Master Chef Share Your Secret Recipes
+        </h1>
+        <p style="margin-top: 5px">
+          Explore thousands of tested recipes, cooking tips, and meal ideas to
+          transform your kitchen adventures
+        </p>
+      </div>
+    </header>
+
+    <section class="events-section">
+      <div class="events-container">
+        <div class="events-content">
+          <h3 class="events-subtitle">Welcome</h3>
+          <h2 class="events-title">
+            Your daily Dish a <span class="highlight">Food Journey</span>
+          </h2>
+          <p class="events-description">
+            The Caesar salad is a crisp blend of romaine lettuce, garlic
+            croutons, and Parmesan, tossed in a creamy, tangy dressing. Often
+            topped with grilled chicken, it's a refreshing starter or hearty
+            meal. Invented in 1920s Mexico, it remains a global favorite.
+          </p>
+          <a href="/login" class="register-btn">Login</a>
+        </div>
+
+        <div class="events-image">
+          <img
+            src="https://i.pinimg.com/736x/a4/35/58/a43558898852a87defaee517fe0006ad.jpg"
+            alt="Caesar Salad"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="trending-section">
+      <div class="section-header">
+        <h2 style="color: rgb(250, 89, 89)">Trending Recipes</h2>
+
+        <p style="color: #666; margin-top: 40px">
+          Discover this week's most popular recipes from our community
+        </p>
+      </div>
+
+      <div class="recipes-container">
+        <!-- Ligne 1 -->
+        <div class="recipe-card">
+          <div class="card-image">
+            <span class="trending-badge">TRENDING</span>
+            <img
+              src="https://i.pinimg.com/736x/4d/ba/1e/4dba1edf3d5265e2c722bf77e3c97718.jpg"
+              alt="Avocado Toast"
+            />
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Avocado Toast</h3>
+            <div class="card-meta">
+              <span>By Chef Maria</span>
+              <span>25 mins</span>
+            </div>
+            <p class="card-description">
+              Creamy avocado on toasted sourdough with cherry tomatoes and feta
+              cheese.
+            </p>
+            <div class="card-footer">
+              <span class="rating">★ 4.8 (124)</span>
+              <a href="#" class="view-btn">View Recipe</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-card">
+          <div class="card-image">
+            <span class="trending-badge">TRENDING</span>
+            <img
+              src="https://i.pinimg.com/736x/33/6a/26/336a2636651f0e86a5ff5e1a6feaf5c3.jpg"
+              alt="Rainbow Salad"
+            />
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Rainbow Salad</h3>
+            <div class="card-meta">
+              <span>By Chef John</span>
+              <span>15 mins</span>
+            </div>
+            <p class="card-description">
+              Fresh seasonal vegetables with quinoa and a light lemon dressing.
+            </p>
+            <div class="card-footer">
+              <span class="rating">★ 4.9 (98)</span>
+              <a href="#" class="view-btn">View Recipe</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-card">
+          <div class="card-image">
+            <span class="trending-badge">TRENDING</span>
+            <img
+              src="https://i.pinimg.com/736x/8d/e8/44/8de84485fbed7a10efefadff940c9a13.jpg"
+              alt="Creamy Pasta"
+            />
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Creamy Pasta</h3>
+            <div class="card-meta">
+              <span>By Chef Luca</span>
+              <span>30 mins</span>
+            </div>
+            <p class="card-description">
+              Homemade pasta with creamy mushroom sauce and fresh herbs.
+            </p>
+            <div class="card-footer">
+              <span class="rating">★ 4.7 (156)</span>
+              <a href="#" class="view-btn">View Recipe</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ligne 2 -->
+        <div class="recipe-card">
+          <div class="card-image">
+            <span class="trending-badge">TRENDING</span>
+            <img
+              src="https://i.pinimg.com/736x/03/f3/2e/03f32ea7408ed866a36fc33627457d9e.jpg"
+              alt="Smoothie Bowl"
+            />
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Smoothie Bowl</h3>
+            <div class="card-meta">
+              <span>By Chef Anna</span>
+              <span>10 mins</span>
+            </div>
+            <p class="card-description">
+              Tropical smoothie bowl with fresh fruits and granola topping.
+            </p>
+            <div class="card-footer">
+              <span class="rating">★ 4.9 (87)</span>
+              <a href="#" class="view-btn">View Recipe</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-card">
+          <div class="card-image">
+            <span class="trending-badge">TRENDING</span>
+            <img
+              src="https://i.pinimg.com/736x/76/27/cc/7627cc077ea4ffd12e9cacafdc6d07ef.jpg"
+              alt="Pancake Stack"
+            />
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Pancake Stack</h3>
+            <div class="card-meta">
+              <span>By Chef David</span>
+              <span>20 mins</span>
+            </div>
+            <p class="card-description">
+              Fluffy pancakes with maple syrup and fresh berries.
+            </p>
+            <div class="card-footer">
+              <span class="rating">★ 4.8 (112)</span>
+              <a href="#" class="view-btn">View Recipe</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-card">
+          <div class="card-image">
+            <span class="trending-badge">TRENDING</span>
+            <img
+              src="https://i.pinimg.com/736x/35/0c/8c/350c8c59dfe51d413d02ecb55dd8439f.jpg"
+              alt="Veggie Burger"
+            />
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Veggie Burger</h3>
+            <div class="card-meta">
+              <span>By Chef Sophie</span>
+              <span>35 mins</span>
+            </div>
+            <p class="card-description">
+              Homemade veggie patty with fresh toppings and special sauce.
+            </p>
+            <div class="card-footer">
+              <span class="rating">★ 4.6 (134)</span>
+              <a href="#" class="view-btn">View Recipe</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog Editorial Section -->
+    <section
+      class="blog-editorial"
+      style="
+        background-color: white;
+        padding: 80px 0;
+        font-family: 'Georgia', serif;
+      "
+    >
+      <div
+        class="container"
+        style="max-width: 1000px; margin: 0 auto; padding: 0 20px"
+      >
+        <div
+          class="section-header"
+          style="text-align: center; margin-bottom: 60px"
+        >
+          <h2
+            style="
+              color: #fa5959;
+              font-size: 2.5rem;
+              margin-bottom: 15px;
+              position: relative;
+              display: inline-block;
+              margin-top: 70px;
+            "
+          >
+            Saucy spoon Chronicles
+            <span
+              style="
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(90deg, #fa5959, #ffc107);
+              "
+            ></span>
+          </h2>
+          <p
+            style="
+              color: #666;
+              font-size: 1.1rem;
+              max-width: 600px;
+              margin: 20px auto 0;
+              margin-top: 40px;
+            "
+          >
+            Professional insights, creative techniques, and gastronomic stories
+          </p>
+        </div>
+
+        <!-- Featured Article -->
+        <article
+          class="featured-article"
+          style="
+            margin-bottom: 60px;
+            border-bottom: 1px solid white;
+            padding-bottom: 40px;
+          "
+        >
+          <div
+            class="article-header"
+            style="display: flex; align-items: center; margin-bottom: 20px"
+          >
+            <div
+              class="author-avatar"
+              style="
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 15px;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1554384645-13eab165c24b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                alt="Chef Maria"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div>
+              <h3 style="color: #333; font-size: 1rem; margin-bottom: 5px">
+                Chef Maria Rodriguez
+              </h3>
+              <p style="color: #888; font-size: 0.9rem">
+                June 12, 2023 • 8 min read
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="article-content"
+            style="display: flex; gap: 40px; align-items: center"
+          >
+            <div class="text-content" style="flex: 1">
+              <h2
+                style="
+                  font-size: 1.8rem;
+                  color: rgb(253, 137, 137);
+                  margin-bottom: 20px;
+                  line-height: 1.4;
+                "
+              >
+                The Science Behind Perfect Dough: A Baker's Perspective
+              </h2>
+              <p style="color: #555; line-height: 1.7; margin-bottom: 25px">
+                Exploring how temperature, humidity, and fermentation time
+                transform simple ingredients into artisanal bread. This deep
+                dive reveals professional techniques adapted for home
+                kitchens...
+              </p>
+              <div class="article-tags" style="margin-bottom: 20px">
+                <span
+                  style="
+                    display: inline-block;
+                    background-color: #d8d7d7;
+                    color: #8a2f2f;
+                    padding: 5px 12px;
+                    border-radius: 20px;
+                    font-size: 0.8rem;
+                    margin-right: 8px;
+                  "
+                  >Baking</span
+                >
+                <span
+                  style="
+                    display: inline-block;
+                    background-color: #d8d7d7;
+                    color: #8a2f2f;
+                    padding: 5px 12px;
+                    border-radius: 20px;
+                    font-size: 0.8rem;
+                    margin-right: 8px;
+                  "
+                  >Science</span
+                >
+                <span
+                  style="
+                    display: inline-block;
+                    background-color: #d8d7d7;
+                    color: #8a2f2f;
+                    padding: 5px 12px;
+                    border-radius: 20px;
+                    font-size: 0.8rem;
+                  "
+                  >Techniques</span
+                >
+              </div>
+              <a
+                href="#"
+                style="
+                  color: #fd6a6a;
+                  text-decoration: none;
+                  font-weight: 600;
+                  display: inline-flex;
+                  align-items: center;
+                "
+              >
+                Continue Reading
+                <svg
+                  style="margin-left: 8px"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fa5959"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+
+            <div class="image-content" style="flex: 1; min-width: 300px">
+              <div
+                style="
+                  width: 100%;
+                  height: 300px;
+                  border-radius: 8px;
+                  overflow: hidden;
+                  box-shadow: 0 10px 30px rgba(250, 89, 89, 0.15);
+                "
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                  alt="Bread dough"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.8s ease;
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Regular Articles List -->
+        <div class="articles-list">
+          <!-- Article 1 -->
+          <article
+            class="blog-post"
+            style="
+              display: flex;
+              gap: 30px;
+              margin-bottom: 40px;
+              padding-bottom: 40px;
+              border-bottom: 1px solid #ddd7d7;
+            "
+          >
+            <div
+              class="post-image"
+              style="
+                flex: 0 0 200px;
+                height: 150px;
+                border-radius: 6px;
+                overflow: hidden;
+              "
+            >
+              <img
+                src="https://i.pinimg.com/736x/7c/53/f5/7c53f5ed3af7a587fa569c5276dfe34e.jpg"
+                alt="Healthy eating"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="post-content" style="flex: 1">
+              <div
+                style="display: flex; align-items: center; margin-bottom: 10px"
+              >
+                <span
+                  style="
+                    background-color: #ffc107;
+                    color: #333;
+                    padding: 3px 10px;
+                    border-radius: 20px;
+                    font-size: 0.7rem;
+                    font-weight: bold;
+                  "
+                  >TRENDING</span
+                >
+                <span style="color: #888; font-size: 0.9rem; margin-left: 15px"
+                  >July 3, 2023</span
+                >
+              </div>
+              <h3 style="font-size: 1.3rem; color: #333; margin-bottom: 10px">
+                Reinventing Comfort Food: Healthy Twists on Classics
+              </h3>
+              <p style="color: #666; line-height: 1.6; margin-bottom: 15px">
+                How to lighten up your favorite comfort dishes without
+                sacrificing flavor or texture, with surprising ingredient
+                substitutions...
+              </p>
+              <a
+                href="#"
+                style="
+                  color: #fa5959;
+                  text-decoration: none;
+                  font-size: 0.9rem;
+                  font-weight: 600;
+                "
+                >Read full story →</a
+              >
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article
+            class="blog-post"
+            style="
+              display: flex;
+              gap: 30px;
+              margin-bottom: 40px;
+              padding-bottom: 40px;
+              border-bottom: 1px solid #d8d0d0;
+            "
+          >
+            <div
+              class="post-image"
+              style="
+                flex: 0 0 200px;
+                height: 150px;
+                border-radius: 6px;
+                overflow: hidden;
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Spices"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+            <div class="post-content" style="flex: 1">
+              <div
+                style="display: flex; align-items: center; margin-bottom: 10px"
+              >
+                <span
+                  style="
+                    background-color: #ff3344;
+                    color: white;
+                    padding: 3px 10px;
+                    border-radius: 20px;
+                    font-size: 0.7rem;
+                    font-weight: bold;
+                  "
+                  >POPULAR</span
+                >
+                <span
+                  style="color: #747373; font-size: 0.9rem; margin-left: 15px"
+                  >June 28, 2023</span
+                >
+              </div>
+              <h3 style="font-size: 1.3rem; color: #333; margin-bottom: 10px">
+                Spice Routes: Global Flavors in Your Pantry
+              </h3>
+              <p style="color: #666; line-height: 1.6; margin-bottom: 15px">
+                Exploring how historical trade routes shaped modern cuisine,
+                with practical tips for building a versatile spice collection...
+              </p>
+              <a
+                href="#"
+                style="
+                  color: #fa5959;
+                  text-decoration: none;
+                  font-size: 0.9rem;
+                  font-weight: 600;
+                "
+                >Read full story →</a
+              >
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px">
+          <a
+            href="#"
+            style="
+              display: inline-block;
+              padding: 12px 30px;
+              border: 2px solid #fa5959;
+              color: #fa5959;
+              text-decoration: none;
+              border-radius: 30px;
+              font-weight: 600;
+              transition: all 0.3s ease;
+            "
+          >
+            Explore More Articles
+            <svg
+              style="margin-left: 8px; vertical-align: middle"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fa5959"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Stay in Touch Section -->
+    <section
+      class="contact-section"
+      style="
+        background: linear-gradient(135deg, #f8efef 0%, #fef9f9 100%);
+        padding: 100px 0;
+        font-family: 'Georgia', serif;
+      "
+    >
+      <div
+        class="contact-container"
+        style="
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 50px;
+          align-items: center;
+        "
+      >
+        <!-- Left Column: Illustration + Social Media -->
+        <div
+          class="contact-illustration"
+          style="flex: 1; min-width: 300px; position: relative"
+        >
+          <div
+            style="
+              width: 100%;
+              height: 400px;
+              background: url('https://i.pinimg.com/736x/9b/3f/71/9b3f7144777742397cd5f1338df2b8b1.jpg')
+                center/cover;
+              border-radius: 15px;
+              box-shadow: 0 20px 40px rgba(250, 89, 89, 0.15);
+            "
+          ></div>
+
+          <div
+            class="social-links"
+            style="
+              position: absolute;
+              bottom: -30px;
+              left: 50%;
+              transform: translateX(-50%);
+              background: white;
+              padding: 20px 30px;
+              border-radius: 50px;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+              display: flex;
+              gap: 15px;
+            "
+          >
+            <a
+              href="instagram.com"
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #d62f2f;
+                display: grid;
+                place-items: center;
+                transition: all 0.3s ease;
+              "
+            >
+              <img
+                src="https://cdn-icons-png.freepik.com/256/15713/15713420.png?semt=ais_hybrid"
+                alt="Facebook"
+                style="width: 20px; filter: brightness(0) invert(1)"
+              />
+            </a>
+            <a
+              href="x.com"
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #d62f2f;
+                display: grid;
+                place-items: center;
+                transition: all 0.3s ease;
+              "
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                alt="Twitter"
+                style="width: 20px; filter: brightness(0) invert(1)"
+              />
+            </a>
+            <a
+              href="facebook.com"
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #d62f2f;
+                display: grid;
+                place-items: center;
+                transition: all 0.3s ease;
+              "
+            >
+              <img
+                src="https://static.vecteezy.com/ti/vecteur-libre/p1/18910719-vecteur-de-logo-facebook-vecteur-gratuit-d-icone-facebook-gratuit-vectoriel.jpg"
+                alt="Instagram"
+                style="width: 20px; filter: brightness(0) invert(1)"
+              />
+            </a>
+            <a
+              href="linkedin.com"
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #d62f2f;
+                display: grid;
+                place-items: center;
+                transition: all 0.3s ease;
+              "
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png"
+                alt="Pinterest"
+                style="width: 20px; filter: brightness(0) invert(1)"
+              />
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Contact Form -->
+        <div class="contact-form" style="flex: 1; min-width: 300px">
+          <h2
+            style="
+              font-size: 2.5rem;
+              color: #333;
+              margin-bottom: 15px;
+              position: relative;
+              display: inline-block;
+            "
+          >
+            Let's Stay in Touch
+            <span
+              style="
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(90deg, #fa5959, #ffc107);
+              "
+            ></span>
+          </h2>
+          <p
+            style="
+              color: #666;
+              margin-bottom: 30px;
+              line-height: 1.6;
+              margin-top: 10px;
+            "
+          >
+            Have questions or feedback? We'd love to hear from you! Share your
+            thoughts or collaborate with us.
+          </p>
+
+          <form style="display: grid; gap: 20px">
+            <div
+              style="display: grid; gap: 15px; grid-template-columns: 1fr 1fr"
+            >
+              <input
+                type="text"
+                placeholder="First Name"
+                style="
+                  padding: 12px 15px;
+                  border: 1px solid #ddd;
+                  border-radius: 8px;
+                  outline: none;
+                  transition: all 0.3s ease;
+                  font-family: 'Georgia', serif;
+                "
+                required
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                style="
+                  padding: 12px 15px;
+                  border: 1px solid #ddd;
+                  border-radius: 8px;
+                  outline: none;
+                  transition: all 0.3s ease;
+                  font-family: 'Georgia', serif;
+                "
+                required
+              />
+            </div>
+            <input
+              type="email"
+              placeholder="Email Address"
+              style="
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                outline: none;
+                transition: all 0.3s ease;
+                font-family: 'Georgia', serif;
+              "
+              required
+            />
+            <textarea
+              placeholder="Your Message"
+              rows="5"
+              style="
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                outline: none;
+                resize: vertical;
+                transition: all 0.3s ease;
+                font-family: 'Georgia', serif;
+              "
+              required
+            ></textarea>
+
+            <button
+              type="submit"
+              style="
+                background: linear-gradient(90deg, #ff3e3e, #ff7b7b);
+                color: white;
+                border: none;
+                padding: 15px 30px;
+                border-radius: 50px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-family: 'Georgia', serif;
+                box-shadow: 0 5px 15px rgba(250, 89, 89, 0.3);
+              "
+            >
+              Send Message
+              <svg
+                style="margin-left: 8px; vertical-align: middle"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Popular Categories - Circular Design -->
+    <section
+      class="circular-categories"
+      style="padding: 100px 0; background: white; font-family: 'Georgia', serif"
+    >
+      <div
+        class="container"
+        style="
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          text-align: center;
+        "
+      >
+        <!-- Section Title -->
+        <h2
+          style="
+            font-size: 2.8rem;
+            color: #fa5959;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            margin-top: 70px;
+          "
+        >
+          Our Saucy spoon Universe
+          <span
+            style="
+              position: absolute;
+              bottom: -10px;
+              left: 0;
+              width: 100%;
+              height: 4px;
+              background: linear-gradient(90deg, #fa5959, #ffc107);
+              border-radius: 2px;
+            "
+          ></span>
+        </h2>
+        <p
+          style="
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 20px auto 50px;
+            line-height: 1.6;
+            margin-top: 40px;
+          "
+        >
+          Explore 9 delicious dimensions of Saucy spoon creativity
+        </p>
+
+        <!-- Circular Categories Grid -->
+        <div
+          class="circle-grid"
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 30px;
+          "
+        >
+          <!-- Row 1 -->
+          <div
+            class="circle-card"
+            style="position: relative; animation: pulse 3s ease infinite"
+          >
+            <div
+              class="circle-img"
+              style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 5px solid white;
+                box-shadow: 0 10px 30px rgba(250, 89, 89, 0.2);
+                transition: all 0.5s ease;
+              "
+            >
+              <img
+                src="https://i.pinimg.com/736x/16/93/a9/1693a905ef6322f2bda217c54403557f.jpg"
+                alt="Vegan"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                "
+              />
+            </div>
+            <div class="circle-content" style="margin-top: 20px">
+              <h3
+                style="
+                  color: #333;
+                  font-size: 1.3rem;
+                  margin-bottom: 5px;
+                  transition: all 0.3s;
+                "
+              >
+                Vegan Delights
+              </h3>
+              <p style="color: #666; font-size: 0.9rem">154 Recipes</p>
+            </div>
+          </div>
+
+          <div
+            class="circle-card"
+            style="position: relative; animation: pulse 3s ease infinite 0.3s"
+          >
+            <div
+              class="circle-img"
+              style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 5px solid white;
+                box-shadow: 0 10px 30px rgba(250, 89, 89, 0.2);
+                transition: all 0.5s ease;
+              "
+            >
+              <img
+                src="https://i.pinimg.com/736x/e3/3b/a0/e33ba0629953dbdc1b188e9225d3e7c0.jpg"
+                alt="Keto"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                "
+              />
+            </div>
+            <div class="circle-content" style="margin-top: 20px">
+              <h3
+                style="
+                  color: #333;
+                  font-size: 1.3rem;
+                  margin-bottom: 5px;
+                  transition: all 0.3s;
+                "
+              >
+                Keto Kitchen
+              </h3>
+              <p style="color: #666; font-size: 0.9rem">98 Recipes</p>
+            </div>
+          </div>
+
+          <div
+            class="circle-card"
+            style="position: relative; animation: pulse 3s ease infinite 0.6s"
+          >
+            <div
+              class="circle-img"
+              style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 5px solid white;
+                box-shadow: 0 10px 30px rgba(250, 89, 89, 0.2);
+                transition: all 0.5s ease;
+              "
+            >
+              <img
+                src="https://i.pinimg.com/736x/1c/5a/89/1c5a895788610aae0c025fb9f2c79cb9.jpg"
+                alt="Gluten-Free"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                "
+              />
+            </div>
+            <div class="circle-content" style="margin-top: 20px">
+              <h3
+                style="
+                  color: #333;
+                  font-size: 1.3rem;
+                  margin-bottom: 5px;
+                  transition: all 0.3s;
+                "
+              >
+                Gluten-Free
+              </h3>
+              <p style="color: #666; font-size: 0.9rem">76 Recipes</p>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div
+            class="circle-card"
+            style="position: relative; animation: pulse 3s ease infinite 0.1s"
+          >
+            <div
+              class="circle-img"
+              style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 5px solid white;
+                box-shadow: 0 10px 30px rgba(250, 89, 89, 0.2);
+                transition: all 0.5s ease;
+              "
+            >
+              <img
+                src="https://i.pinimg.com/736x/f7/a5/14/f7a5144026f31bb9b1333a60ab743f6b.jpg"
+                alt="Italian"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                "
+              />
+            </div>
+            <div class="circle-content" style="margin-top: 20px">
+              <h3
+                style="
+                  color: #333;
+                  font-size: 1.3rem;
+                  margin-bottom: 5px;
+                  transition: all 0.3s;
+                "
+              >
+                Italian Classics
+              </h3>
+              <p style="color: #666; font-size: 0.9rem">112 Recipes</p>
+            </div>
+          </div>
+
+          <div
+            class="circle-card"
+            style="position: relative; animation: pulse 3s ease infinite 0.4s"
+          >
+            <div
+              class="circle-img"
+              style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 5px solid white;
+                box-shadow: 0 10px 30px rgba(250, 89, 89, 0.2);
+                transition: all 0.5s ease;
+              "
+            >
+              <img
+                src="https://i.pinimg.com/736x/62/38/08/6238083cdbed4e1243890eb8f4e53867.jpg"
+                alt="Asian"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                "
+              />
+            </div>
+            <div class="circle-content" style="margin-top: 20px">
+              <h3
+                style="
+                  color: #333;
+                  font-size: 1.3rem;
+                  margin-bottom: 5px;
+                  transition: all 0.3s;
+                "
+              >
+                Asian Flavors
+              </h3>
+              <p style="color: #666; font-size: 0.9rem">89 Recipes</p>
+            </div>
+          </div>
+
+          <div
+            class="circle-card"
+            style="position: relative; animation: pulse 3s ease infinite 0.7s"
+          >
+            <div
+              class="circle-img"
+              style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 5px solid white;
+                box-shadow: 0 10px 30px rgba(250, 89, 89, 0.2);
+                transition: all 0.5s ease;
+              "
+            >
+              <img
+                src="https://i.pinimg.com/736x/a6/af/0f/a6af0f445759e2f7d927eaa5bc0cf11e.jpg"
+                alt="Mediterranean"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                "
+              />
+            </div>
+            <div class="circle-content" style="margin-top: 20px">
+              <h3
+                style="
+                  color: #333;
+                  font-size: 1.3rem;
+                  margin-bottom: 5px;
+                  transition: all 0.3s;
+                "
+              >
+                Mediterranean
+              </h3>
+              <p style="color: #666; font-size: 0.9rem">67 Recipes</p>
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div
+            class="circle-card"
+            style="position: relative; animation: pulse 3s ease infinite 0.2s"
+          >
+            <div
+              class="circle-img"
+              style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 5px solid white;
+                box-shadow: 0 10px 30px rgba(250, 89, 89, 0.2);
+                transition: all 0.5s ease;
+              "
+            >
+              <img
+                src="https://i.pinimg.com/736x/52/58/b4/5258b43a8c5831154433558c14010025.jpg"
+                alt="Holiday"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                "
+              />
+            </div>
+            <div class="circle-content" style="margin-top: 20px">
+              <h3
+                style="
+                  color: #333;
+                  font-size: 1.3rem;
+                  margin-bottom: 5px;
+                  transition: all 0.3s;
+                "
+              >
+                Holiday Specials
+              </h3>
+              <p style="color: #666; font-size: 0.9rem">54 Recipes</p>
+            </div>
+          </div>
+
+          <div
+            class="circle-card"
+            style="position: relative; animation: pulse 3s ease infinite 0.5s"
+          >
+            <div
+              class="circle-img"
+              style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 5px solid white;
+                box-shadow: 0 10px 30px rgba(250, 89, 89, 0.2);
+                transition: all 0.5s ease;
+              "
+            >
+              <img
+                src="https://i.pinimg.com/736x/20/01/de/2001de94a3f22c8933dba8361735b23f.jpg"
+                alt="Quick Meals"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                "
+              />
+            </div>
+            <div class="circle-content" style="margin-top: 20px">
+              <h3
+                style="
+                  color: #333;
+                  font-size: 1.3rem;
+                  margin-bottom: 5px;
+                  transition: all 0.3s;
+                "
+              >
+                Quick Meals
+              </h3>
+              <p style="color: #666; font-size: 0.9rem">143 Recipes</p>
+            </div>
+          </div>
+
+          <div
+            class="circle-card"
+            style="position: relative; animation: pulse 3s ease infinite 0.8s"
+          >
+            <div
+              class="circle-img"
+              style="
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                border: 5px solid white;
+                box-shadow: 0 10px 30px rgba(250, 89, 89, 0.2);
+                transition: all 0.5s ease;
+              "
+            >
+              <img
+                src="https://i.pinimg.com/736x/b5/1a/b6/b51ab614fc381b8df8e08aaa965c0342.jpg"
+                alt="Desserts"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 1s ease;
+                "
+              />
+            </div>
+            <div class="circle-content" style="margin-top: 20px">
+              <h3
+                style="
+                  color: #333;
+                  font-size: 1.3rem;
+                  margin-bottom: 5px;
+                  transition: all 0.3s;
+                "
+              >
+                Decadent Desserts
+              </h3>
+              <p style="color: #666; font-size: 0.9rem">92 Recipes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Hero Section with culinary background -->
+    <section class="hero" style="margin-top: 80px">
+      <video autoplay muted loop class="hero-video">
+        <source
+          src="https://assets.mixkit.co/videos/preview/mixkit-cooking-herbs-and-spices-1761-large.mp4"
+          type="video/mp4"
+        />
+        <!-- Fallback image if video doesn't load -->
+        <img
+          src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+          alt="Creative Cooking"
+        />
+      </video>
+      <div class="hero-content">
+        <h1>Discover Saucy spoon Art</h1>
+        <p>
+          Exceptional recipes, chef techniques and unlimited inspiration to
+          transform your cooking into a gastronomic experience
+        </p>
+        <a href="/recipes" class="cta-button">Explore Our Recipes</a>
+      </div>
+    </section>
+
+    <!-- Featured Recipe Section -->
+    <section class="featured-recipe" id="featured">
+      <div class="recipe-container">
+        <div class="recipe-video" style="margin-top: 70px">
+          <!-- Accessible cooking video from YouTube -->
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/9_5wHw6l11o"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="recipe-details" style="margin-top: 80px">
+          <span class="recipe-badge">Recipe of the Month</span>
+          <h2 class="recipe-title">Creamy Mushroom Risotto</h2>
+          <p class="recipe-description">
+            Discover our creamy wild mushroom risotto, a recipe that perfectly
+            blends Italian tradition with seasonal local ingredients. A
+            comforting dish that will dazzle your guests.
+          </p>
+          <div class="recipe-meta">
+            <div class="meta-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fa5959">
+                <path
+                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                ></path>
+                <path d="M12.5 7H11v6l5.2 3.2.8-1.3-4.5-2.7z"></path>
+              </svg>
+              <span>45 min</span>
+            </div>
+            <div class="meta-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fa5959">
+                <path
+                  d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"
+                ></path>
+              </svg>
+              <span>Intermediate</span>
+            </div>
+            <div class="meta-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fa5959">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                ></path>
+              </svg>
+              <span>4 servings</span>
+            </div>
+          </div>
+          <a href="#" class="cta-button pink-button">View Full Recipe</a>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="newsletter"
+      style="
+        background-image: url('https://i.pinimg.com/736x/20/0a/cc/200acc4223beec2dc4c6bd364bd88531.jpg');
+        margin-top: 70px;
+      "
+    >
+      <div style="max-width: 600px; margin: 0 auto">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px">
+          Subscribe to Our Newsletter
+        </h2>
+        <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9">
+          Receive weekly exclusive recipes, chef tips and special offers
+          directly in your inbox.
+        </p>
+        <form style="display: flex; max-width: 500px; margin: 0 auto">
+          <input
+            type="email"
+            placeholder="Your email"
+            style="
+              flex: 1;
+              padding: 15px;
+              border: none;
+              border-radius: 50px 0 0 50px;
+              font-size: 1rem;
+            "
+          />
+          <button
+            type="submit"
+            style="
+              padding: 15px 25px;
+              background: rgb(255, 107, 107);
+              color: rgb(3, 3, 3);
+              border: none;
+              border-radius: 0 50px 50px 0;
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.3s;
+            "
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Your existing circular categories section -->
+    <section
+      class="circular-categories"
+      style="padding: 100px 0; background: #fff9f9"
+    >
+      <!-- ... (your existing circular categories code) ... -->
+    </section>
+    <!-- Professional Footer -->
+    <footer
+      style="
+        background-color: #2a2a2a;
+        color: #ffffff;
+        padding: 60px 0 30px;
+        font-family: 'Georgia', serif;
+      "
+    >
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px">
+        <!-- Footer Columns -->
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+          "
+        >
+          <!-- About Section -->
+          <div>
+            <h3
+              style="
+                color: #fa5959;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                position: relative;
+                display: inline-block;
+              "
+            >
+              Saucy spoon Universe
+              <span
+                style="
+                  position: absolute;
+                  bottom: -8px;
+                  left: 0;
+                  width: 50%;
+                  height: 3px;
+                  background: #fa5959;
+                "
+              ></span>
+            </h3>
+            <p style="color: #b3b3b3; line-height: 1.6; margin-bottom: 20px">
+              We're passionate about bringing the world's flavors to your
+              kitchen. Our mission is to make professional cooking accessible to
+              everyone.
+            </p>
+            <div style="display: flex; gap: 15px">
+              <a
+                href="#"
+                style="
+                  color: #ffffff;
+                  background: #fa5959;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-decoration: none;
+                  transition: all 0.3s;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                style="
+                  color: #ffffff;
+                  background: #fa5959;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-decoration: none;
+                  transition: all 0.3s;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path
+                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                style="
+                  color: #ffffff;
+                  background: #fa5959;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-decoration: none;
+                  transition: all 0.3s;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path
+                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                style="
+                  color: #ffffff;
+                  background: #fa5959;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-decoration: none;
+                  transition: all 0.3s;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3
+              style="
+                color: #fa5959;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                position: relative;
+                display: inline-block;
+              "
+            >
+              Quick Links
+              <span
+                style="
+                  position: absolute;
+                  bottom: -8px;
+                  left: 0;
+                  width: 50%;
+                  height: 3px;
+                  background: #fa5959;
+                "
+              ></span>
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li style="margin-bottom: 10px">
+                <a
+                  href="/"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >Home</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="/recipes"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >Recipes</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="/blog"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >blog</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="/submit"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >Submit a Recipe</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="/about"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >About Us</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="/contact"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h3
+              style="
+                color: #fa5959;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                position: relative;
+                display: inline-block;
+              "
+            >
+              Contact Us
+              <span
+                style="
+                  position: absolute;
+                  bottom: -8px;
+                  left: 0;
+                  width: 50%;
+                  height: 3px;
+                  background: #fa5959;
+                "
+              ></span>
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li
+                style="
+                  margin-bottom: 15px;
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 10px;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="#fa5959"
+                >
+                  <path
+                    d="M12 2c3.196 0 6 2.618 6 5.602 0 3.093-2.493 7.132-6 12.661-3.507-5.529-6-9.568-6-12.661 0-2.984 2.804-5.602 6-5.602m0-2c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"
+                  />
+                </svg>
+                <span style="color: #b3b3b3"
+                  >123 saucy spoon Street, Foodville, FC 12345</span
+                >
+              </li>
+              <li
+                style="
+                  margin-bottom: 15px;
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="#fa5959"
+                >
+                  <path
+                    d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"
+                  />
+                </svg>
+                <span style="color: #b3b3b3">+1 (555) 123-4567</span>
+              </li>
+              <li
+                style="
+                  margin-bottom: 15px;
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="#fa5959"
+                >
+                  <path
+                    d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"
+                  />
+                </svg>
+                <span style="color: #b3b3b3">info@culinaryuniverse.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div>
+            <h3
+              style="
+                color: #fa5959;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                position: relative;
+                display: inline-block;
+              "
+            >
+              Stay Updated
+              <span
+                style="
+                  position: absolute;
+                  bottom: -8px;
+                  left: 0;
+                  width: 50%;
+                  height: 3px;
+                  background: #fa5959;
+                "
+              ></span>
+            </h3>
+            <p style="color: #b3b3b3; line-height: 1.6; margin-bottom: 20px">
+              Subscribe to our newsletter for weekly recipes and cooking tips!
+            </p>
+            <form style="display: flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                style="
+                  flex: 1;
+                  padding: 12px;
+                  border: none;
+                  border-radius: 4px 0 0 4px;
+                  font-size: 1rem;
+                "
+              />
+              <button
+                type="submit"
+                style="
+                  padding: 0 20px;
+                  background: #fa5959;
+                  color: white;
+                  border: none;
+                  border-radius: 0 4px 4px 0;
+                  font-weight: bold;
+                  cursor: pointer;
+                  transition: all 0.3s;
+                "
+              >
+                →
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div
+          style="
+            border-top: 1px solid #444;
+            padding-top: 30px;
+            text-align: center;
+          "
+        >
+          <p style="color: #b3b3b3; margin-bottom: 10px">
+            &copy; 2025 Saucy spoon Universe. All rights reserved.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 20px">
+            <a
+              href="#"
+              style="
+                color: #b3b3b3;
+                text-decoration: none;
+                transition: all 0.3s;
+              "
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              style="
+                color: #b3b3b3;
+                text-decoration: none;
+                transition: all 0.3s;
+              "
+              >Terms of Service</a
+            >
+            <a
+              href="#"
+              style="
+                color: #b3b3b3;
+                text-decoration: none;
+                transition: all 0.3s;
+              "
+              >Sitemap</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <script src="./main.js"></script>
+</html>

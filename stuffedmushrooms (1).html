@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+    <script type="text/javascript">
+      window.tailwind.config = {
+        darkMode: ['class'],
+        theme: {
+          extend: {
+            colors: {
+              border: 'hsl(var(--border))',
+              input: 'hsl(var(--input))',
+              ring: 'hsl(var(--ring))',
+              background: 'hsl(var(--background))',
+              foreground: 'hsl(var(--foreground))',
+              primary: {
+                DEFAULT: 'hsl(var(--primary))',
+                foreground: 'hsl(var(--primary-foreground))'
+              },
+              secondary: {
+                DEFAULT: 'hsl(var(--secondary))',
+                foreground: 'hsl(var(--secondary-foreground))'
+              },
+              destructive: {
+                DEFAULT: 'hsl(var(--destructive))',
+                foreground: 'hsl(var(--destructive-foreground))'
+              },
+              muted: {
+                DEFAULT: 'hsl(var(--muted))',
+                foreground: 'hsl(var(--muted-foreground))'
+              },
+              accent: {
+                DEFAULT: 'hsl(var(--accent))',
+                foreground: 'hsl(var(--accent-foreground))'
+              },
+              popover: {
+                DEFAULT: 'hsl(var(--popover))',
+                foreground: 'hsl(var(--popover-foreground))'
+              },
+              card: {
+                DEFAULT: 'hsl(var(--card))',
+                foreground: 'hsl(var(--card-foreground))'
+              },
+            },
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        :root {
+          --background: 0 0% 100%;
+          --foreground: 240 10% 3.9%;
+          --card: 0 0% 100%;
+          --card-foreground: 240 10% 3.9%;
+          --popover: 0 0% 100%;
+          --popover-foreground: 240 10% 3.9%;
+          --primary: 240 5.9% 10%;
+          --primary-foreground: 0 0% 98%;
+          --secondary: 240 4.8% 95.9%;
+          --secondary-foreground: 240 5.9% 10%;
+          --muted: 240 4.8% 95.9%;
+          --muted-foreground: 240 3.8% 46.1%;
+          --accent: 240 4.8% 95.9%;
+          --accent-foreground: 240 5.9% 10%;
+          --destructive: 0 84.2% 60.2%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 5.9% 90%;
+          --input: 240 5.9% 90%;
+          --ring: 240 5.9% 10%;
+          --radius: 0.5rem;
+        }
+        .dark {
+          --background: 240 10% 3.9%;
+          --foreground: 0 0% 98%;
+          --card: 240 10% 3.9%;
+          --card-foreground: 0 0% 98%;
+          --popover: 240 10% 3.9%;
+          --popover-foreground: 0 0% 98%;
+          --primary: 0 0% 98%;
+          --primary-foreground: 240 5.9% 10%;
+          --secondary: 240 3.7% 15.9%;
+          --secondary-foreground: 0 0% 98%;
+          --muted: 240 3.7% 15.9%;
+          --muted-foreground: 240 5% 64.9%;
+          --accent: 240 3.7% 15.9%;
+          --accent-foreground: 0 0% 98%;
+          --destructive: 0 62.8% 30.6%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 3.7% 15.9%;
+          --input: 240 3.7% 15.9%;
+          --ring: 240 4.9% 83.9%;
+        }
+      }
+    </style>
+  </head>
+  <body class=" text-foreground p-4" style="font-family: Georgia, serif;background-color: rgb(253, 241, 241);">
+    <!-- Header Action Bar -->
+    <div class="max-w-5xl mx-auto flex justify-end items-center space-x-4 mb-4 bg-background rounded-xl px-4 py-3 shadow-md">
+      <div class="flex items-center space-x-1 text-muted-foreground">
+        <span>❤️</span>
+        <span>45</span>
+      </div>
+      <div>
+        <img aria-hidden="true" alt="share-icon" src="https://openui.fly.dev/openui/24x24.svg?text=🔗" class="w-5 h-5" />
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="relative">
+        <button id="profileButton" class="text-muted-foreground hover:text-primary focus:outline-none">
+          Profile ▼
+        </button>
+        <div id="profileMenu" class="hidden absolute right-0 mt-2 w-48 bg-card border border-border rounded-md shadow-lg z-20">
+          <ul class="py-1">
+            <li><a href="profil.html" class="block px-4 py-2 text-secondary-foreground hover:bg-secondary hover:text-secondary-foreground transition">View Profile</a></li>
+            <li><a href="#" class="block px-4 py-2 text-secondary-foreground hover:bg-secondary hover:text-secondary-foreground transition">Settings</a></li>
+            <li><a href="index.html" class="block px-4 py-2 text-secondary-foreground hover:bg-secondary hover:text-secondary-foreground transition">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Save Button -->
+      <button class="bg-destructive text-destructive-foreground px-4 py-2 rounded-lg hover:bg-destructive/80 transition focus:outline-none">
+        Enregistrer
+      </button>
+    </div>
+
+    <!-- Main Content Card -->
+    <div class="max-w-5xl mx-auto bg-card rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+      <!-- Image Section -->
+      <div class="md:w-1/2">
+        <img src=" https://i.pinimg.com/736x/bf/13/30/bf13308b8ba2bc27bc6c9cbc42fea6d4.jpg" alt="Creamy Harissa Pasta" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Content Section -->
+      <div class="md:w-1/2 p-6 space-y-4">
+        <h2 class="text-2xl font-bold" style="color:rgb(247, 73, 73);margin-top: 40px;">Easy Spinach and Ricotta Stuffed Mushrooms Recipe</h2>
+        <p class="text-muted-foreground">Pick Up Limes <span class="text-red-500">●</span> 45</p>
+
+        <div class="flex items-center gap-2">
+          <span class="text-yellow-400 text-lg">★★★★☆</span>
+          <span class="text-muted-foreground">(201 notes)</span>
+        </div>
+
+        <p class="text-muted-foreground">15 min | Vegetarian | Pour 4 personnes</p>
+
+        <a href="#" class=" text-secondary-foreground hover:bg-secondary/80 transition block text-center p-2 rounded-lg w-full" style="background-color: rgb(231, 231, 231);">Visiter le site</a>
+
+        <p class="text-muted-foreground">This pasta quickly became a fan favourite after being featured in...</p>
+        <p class="text-muted-foreground">18 ingrédients</p>
+        <p class="text-muted-foreground">Pas de commentaire pour le moment</p>
+      </div>
+    </div>
+
+    <!-- Dropdown Toggle Script -->
+    <script>
+      const profileButton = document.getElementById('profileButton');
+      const profileMenu = document.getElementById('profileMenu');
+
+      profileButton.addEventListener('click', function (event) {
+        event.stopPropagation();
+        profileMenu.classList.toggle('hidden');
+      });
+
+      window.addEventListener('click', function (event) {
+        if (!profileMenu.contains(event.target) && !profileButton.contains(event.target)) {
+          profileMenu.classList.add('hidden');
+        }
+      });
+    </script>
+  </body>
+</html>

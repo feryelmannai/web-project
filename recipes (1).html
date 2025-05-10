@@ -1,0 +1,1658 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saucy Spoon - Découvrez des recettes délicieuses</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script
+      src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js"
+      defer
+      init
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+
+    <script type="text/javascript">
+      window.tailwind.config = {
+        darkMode: ["class"],
+        theme: {
+          extend: {
+            colors: {
+              // Palette Saucy Spoon
+              "saucy-primary": "#E63946", // Rouge vif
+              "saucy-secondary": "#F1FAEE", // Crème très clair
+              "saucy-accent": "#A8DADC", // Bleu clair
+              "saucy-dark": "#1D3557", // Bleu marine
+              "saucy-light": "#457B9D", // Bleu moyen
+
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+            },
+            animation: {
+              "fade-in": "fadeIn 1s ease-in",
+              "slide-up": "slideUp 0.6s ease-out",
+              "pulse-slow": "pulse 3s infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(20px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer base {
+        :root {
+          --background: 0 0% 100%;
+          --foreground: 240 10% 3.9%;
+          --card: 0 0% 100%;
+          --card-foreground: 240 10% 3.9%;
+          --popover: 0 0% 100%;
+          --popover-foreground: 240 10% 3.9%;
+          --primary: 240 5.9% 10%;
+          --primary-foreground: 0 0% 98%;
+          --secondary: 240 4.8% 95.9%;
+          --secondary-foreground: 240 5.9% 10%;
+          --muted: 240 4.8% 95.9%;
+          --muted-foreground: 240 3.8% 46.1%;
+          --accent: 240 4.8% 95.9%;
+          --accent-foreground: 240 5.9% 10%;
+          --destructive: 0 84.2% 60.2%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 5.9% 90%;
+          --input: 240 5.9% 90%;
+          --ring: 240 5.9% 10%;
+          --radius: 0.5rem;
+        }
+        .dark {
+          --background: 240 10% 3.9%;
+          --foreground: 0 0% 98%;
+          --card: 240 10% 3.9%;
+          --card-foreground: 0 0% 98%;
+          --popover: 240 10% 3.9%;
+          --popover-foreground: 0 0% 98%;
+          --primary: 0 0% 98%;
+          --primary-foreground: 240 5.9% 10%;
+          --secondary: 240 3.7% 15.9%;
+          --secondary-foreground: 0 0% 98%;
+          --muted: 240 3.7% 15.9%;
+          --muted-foreground: 240 5% 64.9%;
+          --accent: 240 3.7% 15.9%;
+          --accent-foreground: 0 0% 98%;
+          --destructive: 0 62.8% 30.6%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 3.7% 15.9%;
+          --input: 240 3.7% 15.9%;
+          --ring: 240 4.9% 83.9%;
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        .float-animation {
+          animation: float 3s ease-in-out infinite;
+        }
+
+        .header {
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-hide {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+
+        .header-show {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        .card-hover {
+          transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .about-hero {
+          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("https://cdn.wegic.ai/assets/onepage/ai/image/1dffea17-dd2f-4de5-a3c0-81e327aa9a26.jpeg");
+          background-size: cover;
+          background-position: center;
+          height: 80vh;
+          min-height: 600px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+          margin-top: 50px;
+          margin-bottom: 80px;
+        }
+
+        .hero-content {
+          max-width: 900px;
+          padding: 0 20px;
+        }
+
+        .about-hero h1 {
+          font-size: 4.5rem;
+          color: white;
+          margin: 0 0 1.5rem;
+          font-weight: 700;
+          text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-hero p {
+          font-size: 1.5rem;
+          color: rgba(255, 255, 255, 0.9);
+          margin-bottom: 2.5rem;
+          font-weight: 400;
+        }
+
+        .scroll-down {
+          position: absolute;
+          bottom: 30px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: white;
+          font-size: 2rem;
+          animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+          0%,
+          20%,
+          50%,
+          80%,
+          100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-20px);
+          }
+          60% {
+            transform: translateY(-10px);
+          }
+        }
+      }
+      /* Styles de base */
+      .site-header {
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        color: #e63946;
+        margin-right: 0.5rem;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1d3557;
+      }
+
+      .main-nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-link {
+        margin-left: 1.5rem;
+        color: black;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #e63946;
+      }
+
+      .contact-button {
+        margin-left: 1.5rem;
+        background: #e63946;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.3s;
+      }
+
+      .contact-button:hover {
+        background: #1d3557;
+      }
+
+      /* Menu déroulant */
+      .nav-dropdown {
+        position: relative;
+      }
+
+      .nav-dropdown:hover .dropdown-menu {
+        display: grid;
+        animation: fadeIn 0.3s;
+      }
+
+      .category-column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .category-title {
+        color: rgb(122, 30, 30);
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgb(253, 110, 110);
+      }
+
+      .subcategory-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .subcategory-link {
+        display: block;
+        padding: 0.5rem 0;
+        color: #09151d;
+        text-decoration: none;
+        transition: color 0.2s, transform 0.2s;
+      }
+
+      .subcategory-link:hover {
+        color: #e63946;
+        transform: translateX(5px);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100%;
+        width: 90vw; /* Utilise 90% de la largeur de l'écran */
+        max-width: 1200px;
+        min-width: 800px;
+        background: white;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 8px 8px;
+        padding: 2rem;
+        display: none;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem; /* Espacement augmenté entre colonnes */
+        z-index: 100;
+        overflow: visible;
+      }
+
+      .category-column {
+        min-width: 200px;
+        padding: 0 1rem;
+      }
+
+      /* Pour les écrans moyens */
+      @media (max-width: 1024px) {
+        .dropdown-menu {
+          width: 95vw;
+          min-width: 700px;
+          gap: 1.5rem;
+        }
+      }
+
+      /* Version mobile */
+      @media (max-width: 768px) {
+        .dropdown-menu {
+          position: static;
+          width: 100%;
+          min-width: unset;
+          grid-template-columns: 1fr;
+          padding: 1rem;
+        }
+
+        .category-column {
+          min-width: unset;
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      .dropdown-content-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        width: 100%;
+        overflow-x: auto; /* Défilement si nécessaire */
+        padding-bottom: 10px; /* Espace pour la scrollbar */
+      }
+
+      /* Style de la scrollbar */
+      .dropdown-content-container::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .dropdown-content-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .dropdown-content-container::-webkit-scrollbar-thumb {
+        background: #a8dadc;
+        border-radius: 10px;
+      }
+
+      .dropdown-content-container::-webkit-scrollbar-thumb:hover {
+        background: #457b9d;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-saucy-secondary"
+    style="background-color: white; font-family: Georgia, serif"
+  >
+    <!-- Header -->
+    <header id="site-header" class="site-header">
+      <div class="header-container">
+        <nav class="main-nav" style="margin-left: 33%">
+          <a href="/" class="nav-link" style="font-size: 19px">Home</a>
+
+          <!-- Menu Recipes -->
+          <div class="nav-dropdown">
+            <a
+              href="/recipes"
+              class="nav-link dropdown-toggle"
+              id="recipes-dropdown"
+              style="font-size: 19px"
+              >Recipes</a
+            >
+            <div class="dropdown-menu" id="recipes-menu">
+              <!-- Catégorie 1 -->
+              <div class="category-column" style="margin-left: 80px">
+                <h3 class="category-title">Healthy Food</h3>
+                <ul class="subcategory-list">
+                  <li>
+                    <a
+                      href="category.html?cat=Vegetarian"
+                      class="subcategory-link"
+                      >Vegetarian Recipes</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category.html?cat=Vegan" class="subcategory-link"
+                      >Vegan Recipes</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="category.html?cat=Gluten-Free"
+                      class="subcategory-link"
+                      >Gluten-Free Recipes</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="category.html?cat=Low-Carb"
+                      class="subcategory-link"
+                      >Low-Carb Recipes</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Catégorie 2 -->
+              <div class="category-column">
+                <h3 class="category-title">Quick Meals</h3>
+                <ul class="subcategory-list">
+                  <li>
+                    <a
+                      href="category.html?cat=30-Minutes"
+                      class="subcategory-link"
+                      >30-Minute Recipes</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category.html?cat=One-Pot" class="subcategory-link"
+                      >One-Pot Meals</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="category.html?cat=Meal-Prep"
+                      class="subcategory-link"
+                      >Meal Prep Ideas</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/appetizers" class="subcategory-link"
+                      >Appetizers</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Catégorie 3 -->
+              <div class="category-column">
+                <h3 class="category-title">By Cuisine</h3>
+                <ul class="subcategory-list">
+                  <li>
+                    <a href="category.html?cat=Italian" class="subcategory-link"
+                      >Italian Recipes</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category.html?cat=Asian" class="subcategory-link"
+                      >Asian Recipes</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category.html?cat=Mexican" class="subcategory-link"
+                      >Mexican Recipes</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="category.html?cat=Mediterranean"
+                      class="subcategory-link"
+                      >Mediterranean Recipes</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category.html?cat=Italian" class="subcategory-link"
+                      >french Recipes</a
+                    >
+                  </li>
+                  <li>
+                    <a href="category.html?cat=Asian" class="subcategory-link"
+                      >tunisien Recipes</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <a href="/about" class="nav-link" style="font-size: 19px">About</a>
+          <a href="#" class="contact-button">Contact Us →</a>
+        </nav>
+      </div>
+    </header>
+
+    <script>
+      // Pour les appareils mobiles (optionnel)
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdownToggle = document.querySelector(".dropdown-toggle");
+        const dropdownMenu = document.querySelector(".dropdown-menu");
+
+        if (window.innerWidth < 768) {
+          dropdownToggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            dropdownMenu.classList.toggle("mobile-visible");
+          });
+        }
+      });
+      // Header scroll animation
+      let lastScrollTop = 0;
+      const header = document.getElementById("site-header");
+
+      window.addEventListener("scroll", () => {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling down
+          header.classList.remove("header-show");
+          header.classList.add("header-hide");
+        } else {
+          // Scrolling up
+          header.classList.remove("header-hide");
+          header.classList.add("header-show");
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
+
+      // Initialize ScrollReveal
+      document.addEventListener("DOMContentLoaded", () => {
+        ScrollReveal().reveal(".animate-fade-in", {
+          delay: 200,
+          duration: 1000,
+          easing: "ease-in-out",
+          opacity: 0,
+          distance: "20px",
+          origin: "bottom",
+        });
+
+        ScrollReveal().reveal(".animate-slide-up", {
+          delay: 300,
+          duration: 800,
+          easing: "ease-out",
+          distance: "30px",
+          origin: "bottom",
+        });
+
+        ScrollReveal().reveal(".animate-delay-1", { delay: 400 });
+        ScrollReveal().reveal(".animate-delay-2", { delay: 600 });
+        ScrollReveal().reveal(".animate-delay-3", { delay: 800 });
+      });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="hero-content">
+        <h1 class="animate__animated animate__fadeInDown">
+          Creamy Alfredo Pasta
+        </h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">
+          A rich and creamy pasta perfect for dinner
+        </p>
+        <button
+          class="mt-8 bg-saucy-primary text-white px-8 py-3 rounded-full font-bold hover:bg-saucy-dark transition-colors duration-300 animate__animated animate__fadeInUp animate__delay-2s"
+        >
+          Get the Recipe
+        </button>
+      </div>
+      <div class="scroll-down">
+        <svg
+          class="w-8 h-8 animate-bounce"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          ></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <div
+      class="bg-white py-16 px-6"
+      style="background: linear-gradient(135deg, #f8efef 0%, #fef9f9 100%)"
+    >
+      <div class="max-w-7xl mx-auto">
+        <!-- Title Section -->
+        <div class="mb-12 text-center animate-fade-in">
+          <h1
+            class="text-4xl font-bold mb-4"
+            style="margin-top: 40px; color: #d8424e"
+          >
+            Discover Recipes by Category
+          </h1>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore our delicious recipes organized by categories to find
+            exactly what you're craving
+          </p>
+        </div>
+
+        <!-- Cards Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          style="margin-top: 100px"
+        >
+          <!-- Card 1 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-slide-up animate-delay-1"
+          >
+            <img
+              src="https://i.pinimg.com/736x/47/a3/07/47a30743079d6162cb2b7219b09e3093.jpg"
+              alt="Comfort Food"
+              class="w-full h-48 object-cover transform transition duration-500 hover:scale-105"
+            />
+            <div class="p-6">
+              <h2 class="text-xl font-semibold text-saucy-dark mb-2">
+                Comfort Food
+              </h2>
+              <p class="text-gray-600">
+                Warm, hearty meals to soothe your soul.
+              </p>
+              <button
+                class="mt-4 text-saucy-primary hover:text-saucy-dark font-medium transition-colors duration-300"
+              >
+                Explore Recipes →
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-slide-up animate-delay-2"
+          >
+            <img
+              src="https://i.pinimg.com/736x/da/6f/51/da6f515dce716dce678b5b21e03d7a1f.jpg"
+              alt="Quick & Easy"
+              class="w-full h-48 object-cover transform transition duration-500 hover:scale-105"
+            />
+            <div class="p-6">
+              <h2 class="text-xl font-semibold text-saucy-dark mb-2">
+                Quick & Easy
+              </h2>
+              <p class="text-gray-600">
+                Delicious recipes ready in 30 minutes or less.
+              </p>
+              <button
+                class="mt-4 text-saucy-primary hover:text-saucy-dark font-medium transition-colors duration-300"
+              >
+                Explore Recipes →
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-slide-up animate-delay-3"
+          >
+            <img
+              src="https://i.pinimg.com/736x/b1/da/bb/b1dabb1f5c36b4c7cdd4ae7c029f2a65.jpg"
+              alt="Healthy Choices"
+              class="w-full h-48 object-cover transform transition duration-500 hover:scale-105"
+            />
+            <div class="p-6">
+              <h2 class="text-xl font-semibold text-saucy-dark mb-2">
+                Healthy Choices
+              </h2>
+              <p class="text-gray-600">
+                Nutritious dishes for a balanced lifestyle.
+              </p>
+              <button
+                class="mt-4 text-saucy-primary hover:text-saucy-dark font-medium transition-colors duration-300"
+              >
+                Explore Recipes →
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-slide-up"
+          >
+            <img
+              src="https://i.pinimg.com/736x/3c/e9/34/3ce934fe93719c1efc4147e21868a5bf.jpg"
+              alt="Desserts"
+              class="w-full h-48 object-cover transform transition duration-500 hover:scale-105"
+            />
+            <div class="p-6">
+              <h2 class="text-xl font-semibold text-saucy-dark mb-2">
+                Desserts
+              </h2>
+              <p class="text-gray-600">
+                Indulgent treats to satisfy your sweet tooth.
+              </p>
+              <button
+                class="mt-4 text-saucy-primary hover:text-saucy-dark font-medium transition-colors duration-300"
+              >
+                Explore Recipes →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Section -->
+    <div
+      class="py-16 px-6 bg-saucy-accent"
+      style="
+        margin-top: 80px;
+        background: linear-gradient(135deg, #f8efef 0%, #fef9f9 100%);
+      "
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 animate-fade-in">
+          <h1
+            class="text-4xl font-bold text-saucy-dark mb-4"
+            style="margin-top: 70px; color: #d8424e"
+          >
+            Find Your Next Favorite Dish
+          </h1>
+          <p class="text-lg text-saucy-dark max-w-2xl mx-auto">
+            Search by ingredients, cuisine, or dietary needs to uncover recipes
+            tailored just for you.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white p-6 rounded-xl shadow-md card-hover animate-slide-up animate-delay-1"
+          >
+            <div
+              class="w-16 h-16 bg-saucy-primary rounded-full flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-semibold text-saucy-dark mb-2">
+              Ingredient-Based Search
+            </h2>
+            <p class="text-gray-600">
+              Have specific ingredients? Discover recipes that make the most of
+              what you have.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-xl shadow-md card-hover animate-slide-up animate-delay-2"
+          >
+            <div
+              class="w-16 h-16 bg-saucy-primary rounded-full flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-semibold text-saucy-dark mb-2">
+              Cuisine Explorer
+            </h2>
+            <p class="text-gray-600">
+              Craving Italian? Mexican? Explore recipes by cuisine.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-xl shadow-md card-hover animate-slide-up animate-delay-3"
+          >
+            <div
+              class="w-16 h-16 bg-saucy-primary rounded-full flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-semibold text-saucy-dark mb-2">
+              Dietary Preferences
+            </h2>
+            <p class="text-gray-600">
+              Find recipes that align with your dietary needs, from vegan to
+              gluten-free.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div
+      class="py-16 px-6 bg-white"
+      style="
+        margin-top: 70px;
+        margin-left: 70px;
+        margin-right: 70px;
+        margin-bottom: 70px;
+      "
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between mb-12 gap-4"
+        >
+          <div class="md:w-1/2 mb-8 md:mb-0 animate-fade-in">
+            <h1
+              class="text-4xl font-bold text-saucy-dark mb-4"
+              style="color: #fc9da4"
+            >
+              How to Cook Like a Pro
+            </h1>
+            <p
+              class="text-lg text-gray-600 mb-6"
+              style="max-width: 400px; margin-top: 50px"
+            >
+              To cook like a pro, start by mastering basic techniques like knife
+              skills, seasoning, and proper heat control. Always use fresh,
+              high-quality ingredients and follow recipes precisely at
+              first—then experiment with flavors as you gain confidence.Keep
+              your workspace organized, taste as you go, and don’t be afraid to
+              make mistakes.!
+            </p>
+            <button
+              class="bg-saucy-primary text-white px-6 py-3 rounded-full font-bold hover:bg-saucy-dark transition-colors duration-300"
+              style="margin-top: 30px"
+            >
+              Learn More
+            </button>
+          </div>
+          <div class="md:w-1/2 animate-slide-up">
+            <img
+              class="w-full rounded-xl shadow-lg float-animation"
+              style="width: 500px; height: 550px"
+              src="https://i.pinimg.com/736x/ff/fe/c9/fffec99724b138148850ad2e43fc7dbb.jpg"
+              alt="Cooking steps"
+            />
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
+          style="margin-top: 90px"
+        >
+          <div
+            class="bg-saucy-secondary p-8 rounded-xl text-center card-hover animate-slide-up animate-delay-1"
+            style="
+              background: linear-gradient(135deg, #f8efef 0%, #fef9f9 100%);
+            "
+          >
+            <div class="text-4xl font-bold text-saucy-primary mb-4">01</div>
+            <h3 class="text-xl font-semibold text-saucy-dark mb-2">
+              Gather Your Ingredients
+            </h3>
+            <p class="text-gray-600">
+              Start by collecting all the ingredients you need for the recipe.
+            </p>
+          </div>
+          <div
+            class="bg-saucy-secondary p-8 rounded-xl text-center card-hover animate-slide-up animate-delay-2"
+            style="
+              background: linear-gradient(135deg, #f8efef 0%, #fef9f9 100%);
+            "
+          >
+            <div class="text-4xl font-bold text-saucy-primary mb-4">02</div>
+            <h3 class="text-xl font-semibold text-saucy-dark mb-2">
+              Follow the Recipe
+            </h3>
+            <p class="text-gray-600">
+              Carefully follow the step-by-step instructions provided.
+            </p>
+          </div>
+          <div
+            class="bg-saucy-secondary p-8 rounded-xl text-center card-hover animate-slide-up animate-delay-3"
+            style="
+              background: linear-gradient(135deg, #f8efef 0%, #fef9f9 100%);
+            "
+          >
+            <div class="text-4xl font-bold text-saucy-primary mb-4">03</div>
+            <h3 class="text-xl font-semibold text-saucy-dark mb-2">
+              Enjoy Your Meal
+            </h3>
+            <p class="text-gray-600">
+              Plate your dish beautifully and savor the flavors!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div
+      class="py-16 px-6 bg-saucy-accent"
+      style="background-color: rgb(252, 228, 238); margin-top: 80px"
+    >
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12 animate-fade-in">
+          <h2
+            class="text-3xl font-bold text-saucy-dark mb-4"
+            style="color: #cc3535"
+          >
+            What Our Foodies Are Saying
+          </h2>
+          <p class="text-lg text-saucy-dark">5 Reviews</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg animate-slide-up">
+          <div class="border-b border-gray-200 pb-6 mb-6">
+            <div class="flex items-center mb-4">
+              <span class="text-yellow-400 text-xl">★★★★★</span>
+              <span class="text-gray-500 ml-2">for <strong>Taste</strong></span>
+            </div>
+            <p class="text-gray-700 mb-4">
+              "Absolutely loved the creamy pasta recipe! It was easy to follow
+              and tasted fantastic."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-10 h-10 bg-saucy-primary rounded-full flex items-center justify-center text-white font-bold mr-3"
+              >
+                EJ
+              </div>
+              <div>
+                <p class="font-medium text-saucy-dark">Emily Johnson</p>
+                <p class="text-sm text-gray-500">October 5, 2023</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-b border-gray-200 pb-6 mb-6">
+            <div class="flex items-center mb-4">
+              <span class="text-yellow-400 text-xl">★★★★★</span>
+              <span class="text-gray-500 ml-2"
+                >for <strong>Ease of Use</strong></span
+              >
+            </div>
+            <p class="text-gray-700 mb-4">
+              "The step-by-step instructions made cooking stress-free. Highly
+              recommend!"
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-10 h-10 bg-saucy-primary rounded-full flex items-center justify-center text-white font-bold mr-3"
+              >
+                ML
+              </div>
+              <div>
+                <p class="font-medium text-saucy-dark">Michael Lee</p>
+                <p class="text-sm text-gray-500">September 22, 2023</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center mb-4">
+              <span class="text-yellow-400 text-xl">★★★★★</span>
+              <span class="text-gray-500 ml-2"
+                >for <strong>Photography</strong></span
+              >
+            </div>
+            <p class="text-gray-700 mb-4">
+              "The photos are so inspiring! They make me want to try every
+              recipe."
+            </p>
+            <div class="flex items-center">
+              <div
+                class="w-10 h-10 bg-saucy-primary rounded-full flex items-center justify-center text-white font-bold mr-3"
+              >
+                SM
+              </div>
+              <div>
+                <p class="font-medium text-saucy-dark">Sophia Martinez</p>
+                <p class="text-sm text-gray-500">August 14, 2023</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-16 px-6 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 animate-fade-in">
+          <h2
+            class="text-3xl font-bold text-saucy-dark mb-4"
+            style="margin-top: 70px; color: #d1444d"
+          >
+            Healthy Eating Skills
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Master the art of creating balanced and nutritious meals with these
+            tips.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-saucy-secondary p-6 rounded-xl shadow-md card-hover animate-slide-up animate-delay-1"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-saucy-primary rounded-full flex items-center justify-center text-white mr-4"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-saucy-dark">
+                Meal Planning
+              </h3>
+            </div>
+            <p class="text-gray-600">
+              Organize your meals for the week to save time and eat healthier.
+            </p>
+          </div>
+
+          <div
+            class="bg-saucy-secondary p-6 rounded-xl shadow-md card-hover animate-slide-up animate-delay-2"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-saucy-primary rounded-full flex items-center justify-center text-white mr-4"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-saucy-dark">
+                Portion Control
+              </h3>
+            </div>
+            <p class="text-gray-600">
+              Learn how to balance your plate with the right portions of
+              protein, carbs, and veggies.
+            </p>
+          </div>
+
+          <div
+            class="bg-saucy-secondary p-6 rounded-xl shadow-md card-hover animate-slide-up animate-delay-3"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-saucy-primary rounded-full flex items-center justify-center text-white mr-4"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-saucy-dark">
+                Creative Cooking
+              </h3>
+            </div>
+            <p class="text-gray-600">
+              Experiment with flavors and ingredients to make healthy eating
+              exciting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Professional Footer -->
+    <footer
+      style="
+        background-color: #2a2a2a;
+        color: #ffffff;
+        padding: 60px 0 30px;
+        font-family: 'Georgia', serif;
+        margin-top: 80px;
+      "
+    >
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px">
+        <!-- Footer Columns -->
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+          "
+        >
+          <!-- About Section -->
+          <div>
+            <h3
+              style="
+                color: #fa5959;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                position: relative;
+                display: inline-block;
+              "
+            >
+              Saucy spoon Universe
+              <span
+                style="
+                  position: absolute;
+                  bottom: -8px;
+                  left: 0;
+                  width: 50%;
+                  height: 3px;
+                  background: #fa5959;
+                "
+              ></span>
+            </h3>
+            <p style="color: #ccc9c9; line-height: 1.6; margin-bottom: 20px">
+              We're passionate about bringing the world's flavors to your
+              kitchen. Our mission is to make professional cooking accessible to
+              everyone.
+            </p>
+            <div style="display: flex; gap: 15px">
+              <a
+                href="#"
+                style="
+                  color: #ffffff;
+                  background: #fa5959;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-decoration: none;
+                  transition: all 0.3s;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                style="
+                  color: #ffffff;
+                  background: #fa5959;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-decoration: none;
+                  transition: all 0.3s;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path
+                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                style="
+                  color: #ffffff;
+                  background: #fa5959;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-decoration: none;
+                  transition: all 0.3s;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path
+                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                style="
+                  color: #ffffff;
+                  background: #fa5959;
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-decoration: none;
+                  transition: all 0.3s;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3
+              style="
+                color: #fa5959;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                position: relative;
+                display: inline-block;
+              "
+            >
+              Quick Links
+              <span
+                style="
+                  position: absolute;
+                  bottom: -8px;
+                  left: 0;
+                  width: 50%;
+                  height: 3px;
+                  background: #fa5959;
+                "
+              ></span>
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li style="margin-bottom: 10px">
+                <a
+                  href="/"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >Home</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="/recipes"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >Recipes</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="/submit"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >blog</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="#"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >Submit a Recipe</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="/about"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >About Us</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="#"
+                  style="
+                    color: #b3b3b3;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                    padding: 5px 0;
+                  "
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h3
+              style="
+                color: #fa5959;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                position: relative;
+                display: inline-block;
+              "
+            >
+              Contact Us
+              <span
+                style="
+                  position: absolute;
+                  bottom: -8px;
+                  left: 0;
+                  width: 50%;
+                  height: 3px;
+                  background: #fa5959;
+                "
+              ></span>
+            </h3>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li
+                style="
+                  margin-bottom: 15px;
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 10px;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="#fa5959"
+                >
+                  <path
+                    d="M12 2c3.196 0 6 2.618 6 5.602 0 3.093-2.493 7.132-6 12.661-3.507-5.529-6-9.568-6-12.661 0-2.984 2.804-5.602 6-5.602m0-2c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"
+                  />
+                </svg>
+                <span style="color: #b3b3b3"
+                  >123 saucy spoon Street, Foodville, FC 12345</span
+                >
+              </li>
+              <li
+                style="
+                  margin-bottom: 15px;
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="#fa5959"
+                >
+                  <path
+                    d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"
+                  />
+                </svg>
+                <span style="color: #b3b3b3">+1 (555) 123-4567</span>
+              </li>
+              <li
+                style="
+                  margin-bottom: 15px;
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="#fa5959"
+                >
+                  <path
+                    d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"
+                  />
+                </svg>
+                <span style="color: #b3b3b3">info@culinaryuniverse.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div>
+            <h3
+              style="
+                color: #fa5959;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                position: relative;
+                display: inline-block;
+              "
+            >
+              Stay Updated
+              <span
+                style="
+                  position: absolute;
+                  bottom: -8px;
+                  left: 0;
+                  width: 50%;
+                  height: 3px;
+                  background: #fa5959;
+                "
+              ></span>
+            </h3>
+            <p style="color: #b3b3b3; line-height: 1.6; margin-bottom: 20px">
+              Subscribe to our newsletter for weekly recipes and cooking tips!
+            </p>
+            <form style="display: flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                style="
+                  flex: 1;
+                  padding: 12px;
+                  border: none;
+                  border-radius: 4px 0 0 4px;
+                  font-size: 1rem;
+                "
+              />
+              <button
+                type="submit"
+                style="
+                  padding: 0 20px;
+                  background: #fa5959;
+                  color: white;
+                  border: none;
+                  border-radius: 0 4px 4px 0;
+                  font-weight: bold;
+                  cursor: pointer;
+                  transition: all 0.3s;
+                "
+              >
+                →
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div
+          style="
+            border-top: 1px solid #444;
+            padding-top: 30px;
+            text-align: center;
+          "
+        >
+          <p style="color: #b3b3b3; margin-bottom: 10px">
+            &copy; 2025 Saucy spoon Universe. All rights reserved.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 20px">
+            <a
+              href="#"
+              style="
+                color: #b3b3b3;
+                text-decoration: none;
+                transition: all 0.3s;
+              "
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              style="
+                color: #b3b3b3;
+                text-decoration: none;
+                transition: all 0.3s;
+              "
+              >Terms of Service</a
+            >
+            <a
+              href="#"
+              style="
+                color: #b3b3b3;
+                text-decoration: none;
+                transition: all 0.3s;
+              "
+              >Sitemap</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

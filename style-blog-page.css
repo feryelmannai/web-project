@@ -205,7 +205,6 @@ body {
   color: var(--primary);
 }
 
-/* Rating System */
 .rating {
   display: flex;
   gap: 5px;
@@ -222,7 +221,6 @@ body {
   color: var(--secondary);
 }
 
-/* Recipe Timer */
 .recipe-timer {
   position: fixed;
   bottom: 80px;
@@ -264,7 +262,7 @@ body {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap");
-/* Main Content Container */
+
 .main-content-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -274,7 +272,6 @@ body {
   position: relative;
 }
 
-/* Cards Section */
 .cards-container {
   width: 100%;
   padding: 3rem 0;
@@ -387,13 +384,11 @@ body {
   transform: translateX(5px);
 }
 
-/* Content Area */
 .content-area {
   flex: 1;
   max-width: 800px;
 }
 
-/* Sidebar */
 .sidebar {
   width: 250px;
   position: sticky;
@@ -466,7 +461,6 @@ body {
   transform: translateX(5px);
 }
 
-/* Blog Grid */
 .blog-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -549,7 +543,6 @@ body {
   transform: translateX(5px);
 }
 
-/* Footer */
 footer {
   background: var(--dark);
   color: #ffffff;
@@ -563,7 +556,6 @@ footer {
   padding: 0 20px;
 }
 
-/* Footer Columns */
 .footer-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -690,7 +682,6 @@ footer {
   background: var(--primary);
 }
 
-/* Copyright */
 .copyright {
   border-top: 1px solid #444;
   padding-top: 30px;
